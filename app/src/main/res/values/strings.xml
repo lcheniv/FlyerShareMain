@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FlyerShare</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_board">MainBoardActivity</string>
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="title_activity_create">CreateActivity</string>
+</resources>

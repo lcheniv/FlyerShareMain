@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ivchen.flyershare.MainActivity"
+    android:background="@drawable/login_page">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameField"
+        android:layout_marginTop="190dp"
+        android:background="#ffffff"
+        android:hint="username / email"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:singleLine="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordField"
+        android:layout_below="@+id/usernameField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:background="#ffffff"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:hint="password"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/loginButton"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/passwordField"
+        android:layout_alignLeft="@+id/passwordField"
+        android:layout_alignStart="@+id/passwordField"
+        android:onClick="onClickLogin"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign-Up"
+        android:id="@+id/signUpButton"
+        android:paddingRight="10dp"
+        android:layout_alignTop="@+id/loginButton"
+        android:layout_alignRight="@+id/passwordField"
+        android:layout_alignEnd="@+id/passwordField"
+        android:onClick="onClickSignUp"/>
+
+</RelativeLayout>
