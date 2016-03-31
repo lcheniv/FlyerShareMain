@@ -9,13 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class FavoritesActivity extends AppCompatActivity {
+public class TrashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favorites);
-
+        setContentView(R.layout.activity_trash);
     }
 
     @Override

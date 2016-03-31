@@ -16,33 +16,35 @@
         android:layout_marginBottom="5dp">
 
         <ImageButton
-            android:id="@+id/imageButtonList"
+            android:id="@+id/createNewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="45dp"
-            android:layout_toLeftOf="@+id/imageButtonMap"
+            android:layout_toLeftOf="@+id/favoriteButton"
             android:src="@drawable/create_new"
             android:background="@null"/>
 
         <ImageButton
-            android:id="@+id/imageButtonMap"
+            android:id="@+id/favoriteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:src="@drawable/favorite"
-            android:background="@null"/>
+            android:background="@null"
+            android:onClick="onClickFavorite"/>
 
         <ImageButton
-            android:id="@+id/imageButtonSettings"
+            android:id="@+id/trashButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="45dp"
-            android:layout_toRightOf="@+id/imageButtonMap"
+            android:layout_toRightOf="@+id/favoriteButton"
             android:src="@drawable/trash"
-            android:background="@null"/>
+            android:background="@null"
+            android:onClick="onClickTrash"/>
     </RelativeLayout>
 
     <ScrollView
@@ -63,6 +65,17 @@
             android:gravity="center"
             />
     </ScrollView>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:id="@+id/logOutButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClickLogOut"/>
 
 
 </RelativeLayout>

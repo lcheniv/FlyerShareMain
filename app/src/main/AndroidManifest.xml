@@ -29,6 +29,10 @@
         <activity
             android:name=".CreateActivity"
             android:label="@string/title_activity_create"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TrashActivity"
+            android:label="@string/title_activity_trash"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

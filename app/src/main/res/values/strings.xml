@@ -4,4 +4,5 @@
     <string name="title_activity_main_board">MainBoardActivity</string>
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="title_activity_create">CreateActivity</string>
+    <string name="title_activity_trash">TrashActivity</string>
 </resources>
