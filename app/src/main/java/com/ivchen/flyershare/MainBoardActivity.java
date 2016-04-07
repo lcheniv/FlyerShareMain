@@ -58,10 +58,15 @@ public class MainBoardActivity extends AppCompatActivity {
 
         Toast.makeText(MainBoardActivity.this, "Logging out . . .", Toast.LENGTH_SHORT).show();
 
+
         Intent intent = new Intent(MainBoardActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
 
-
+    public void onClickCreate(View view) {
+        Intent intent = new Intent(MainBoardActivity.this, CreateActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

@@ -23,7 +23,8 @@
             android:layout_marginRight="45dp"
             android:layout_toLeftOf="@+id/favoriteButton"
             android:src="@drawable/create_new"
-            android:background="@null"/>
+            android:background="@null"
+            android:onClick="onClickCreate"/>
 
         <ImageButton
             android:id="@+id/favoriteButton"
