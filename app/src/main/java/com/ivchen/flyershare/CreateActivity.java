@@ -1,5 +1,6 @@
 package com.ivchen.flyershare;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,4 +17,9 @@ public class CreateActivity extends AppCompatActivity {
 
     }
 
+    public void onClickHome(View view) {
+        Intent intent = new Intent(CreateActivity.this, MainBoardActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }
