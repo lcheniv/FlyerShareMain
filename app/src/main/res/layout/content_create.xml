@@ -62,7 +62,7 @@
         android:layout_toEndOf="@+id/titleText"
         android:paddingTop="5dp"
         android:layout_marginRight="15dp"
-        android:singleLine="false" />
+        android:singleLine="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,7 +85,9 @@
         android:layout_alignStart="@+id/descriptionText"
         android:layout_marginRight="15dp"
         android:background="#ffffff"
-        android:paddingTop="5dp" />
+        android:paddingTop="5dp"
+        android:nestedScrollingEnabled="false"
+        android:maxLines="5" />
 
     <Button
         android:layout_width="wrap_content"
