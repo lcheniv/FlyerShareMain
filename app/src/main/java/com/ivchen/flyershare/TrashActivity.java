@@ -1,5 +1,6 @@
 package com.ivchen.flyershare;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,4 +40,9 @@ public class TrashActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClickHome(View view) {
+        Intent intent = new Intent(TrashActivity.this, MainBoardActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }
