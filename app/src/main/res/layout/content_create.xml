@@ -108,4 +108,5 @@
         android:layout_alignTop="@+id/captureImageButton"
         android:layout_alignRight="@+id/editText2"
         android:layout_alignEnd="@+id/editText2" />
+
 </RelativeLayout>

@@ -8,4 +8,14 @@
     tools:showIn="@layout/activity_favorites"
     android:background="@drawable/favorite_page">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="No flyers that interest you?"
+        android:id="@+id/existFavoriteText"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
 </RelativeLayout>
