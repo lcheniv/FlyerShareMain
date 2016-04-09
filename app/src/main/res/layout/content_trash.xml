@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="No flyers available."
         android:id="@+id/existText"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
