@@ -33,7 +33,16 @@
         <activity
             android:name=".TrashActivity"
             android:label="@string/title_activity_trash"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".signup"
+            android:label="@string/title_activity_signup"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ivchen.flyershare.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
