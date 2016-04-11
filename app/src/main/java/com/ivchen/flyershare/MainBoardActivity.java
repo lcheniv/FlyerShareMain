@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 public class MainBoardActivity extends AppCompatActivity {
@@ -17,6 +19,17 @@ public class MainBoardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_board);
+
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ImageAdapter(this));
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(MainBoardActivity.this, "" + position,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -68,5 +81,9 @@ public class MainBoardActivity extends AppCompatActivity {
         Intent intent = new Intent(MainBoardActivity.this, CreateActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    public void onClickHelp(View view) {
+        Toast.makeText(MainBoardActivity.this, "Tip: Long-click to favorite a flyer! Click to enlarge flyer which will provide options to favorite or delete as well!", Toast.LENGTH_LONG).show();
     }
 }

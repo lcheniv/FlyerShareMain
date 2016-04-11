@@ -8,4 +8,23 @@
     tools:context="com.ivchen.flyershare.TrashActivity"
     android:background="@drawable/trash_page">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No flyers available."
+        android:id="@+id/existText"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/home"
+        android:background="@null"
+        android:layout_marginBottom="10dp"
+        android:onClick="onClickHome"/>
 </RelativeLayout>

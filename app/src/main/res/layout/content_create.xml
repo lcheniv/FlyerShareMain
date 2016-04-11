@@ -7,4 +7,141 @@
     tools:context="com.ivchen.flyershare.CreateActivity"
     tools:showIn="@layout/activity_create">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:id="@+id/editFlyerButton"
+        android:layout_alignTop="@+id/uploadFlyerButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:id="@+id/uploadFlyerButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="10dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:src="@drawable/home"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:onClick="onClickHome"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Title: "
+        android:id="@+id/titleText"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/editFlyerButton"
+        android:layout_alignLeft="@+id/editFlyerButton"
+        android:layout_alignStart="@+id/editFlyerButton"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:background="#ffffff"
+        android:layout_alignBottom="@+id/titleText"
+        android:layout_toRightOf="@+id/titleText"
+        android:layout_toEndOf="@+id/titleText"
+        android:paddingTop="5dp"
+        android:layout_marginRight="15dp"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description: "
+        android:id="@+id/descriptionText"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/titleText"
+        android:layout_alignLeft="@+id/titleText"
+        android:layout_alignStart="@+id/titleText"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/descriptionText"
+        android:layout_alignLeft="@+id/descriptionText"
+        android:layout_alignStart="@+id/descriptionText"
+        android:layout_marginRight="15dp"
+        android:background="#ffffff"
+        android:paddingTop="5dp"
+        android:nestedScrollingEnabled="false"
+        android:maxLines="5"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capture Image"
+        android:id="@+id/captureImageButton"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_above="@+id/imageButton"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From Photo Library"
+        android:id="@+id/button"
+        android:layout_alignTop="@+id/captureImageButton"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Institutions to share with:"
+        android:id="@+id/textView"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/descriptionText"
+        android:layout_alignStart="@+id/descriptionText"
+        android:layout_marginRight="15dp"
+        android:background="#ffffff"
+        android:paddingTop="5dp"
+        android:maxLines="3"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/upload_flyer"
+        android:background="@null"
+        android:layout_above="@+id/captureImageButton"
+        android:layout_toRightOf="@+id/descriptionText"
+        android:layout_toEndOf="@+id/descriptionText" />
+
 </RelativeLayout>

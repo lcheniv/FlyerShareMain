@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickSignUp(View view) {
-        Intent intent = new Intent(MainActivity.this, MainBoardActivity.class);
+        Intent intent = new Intent(MainActivity.this, signup.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
