@@ -89,4 +89,7 @@ public class MainBoardActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickHelp(View view) {
+        Toast.makeText(MainBoardActivity.this, "Tip: Long-click to favorite a flyer! Click to enlarge flyer which will provide options to favorite or delete as well!", Toast.LENGTH_LONG).show();
+    }
 }
