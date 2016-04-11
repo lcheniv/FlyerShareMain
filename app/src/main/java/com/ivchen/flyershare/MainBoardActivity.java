@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+
 public class MainBoardActivity extends AppCompatActivity {
 
     @Override
@@ -71,7 +73,11 @@ public class MainBoardActivity extends AppCompatActivity {
 
         Toast.makeText(MainBoardActivity.this, "Logging out . . .", Toast.LENGTH_SHORT).show();
 
+        //log-out code
+        Firebase ref = new Firebase("https://flyershare.firebaseio.com");
+        ref.unauth();
 
+        //intent for page navigation
         Intent intent = new Intent(MainBoardActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
