@@ -38,6 +38,7 @@ public class CreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
+        Firebase.setAndroidContext(this);
         image = (ImageView) findViewById(R.id.imageView2);
 
     }
