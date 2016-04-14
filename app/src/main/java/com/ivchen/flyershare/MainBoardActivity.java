@@ -13,7 +13,13 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+import com.firebase.client.ValueEventListener;
 
 public class MainBoardActivity extends AppCompatActivity {
 
@@ -33,6 +39,7 @@ public class MainBoardActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 
@@ -58,10 +65,13 @@ public class MainBoardActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void onClickFavorite(View view) {
         Intent intent = new Intent(MainBoardActivity.this, FavoritesActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+
     }
 
     public void onClickTrash(View view) {

@@ -1,17 +1,39 @@
 package com.ivchen.flyershare;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
+import android.widget.Toast;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.ivchen.flyershare.MainBoardActivity;
+
 
 /**
  * Created by Owner on 4/9/2016.
  */
 public class ImageAdapter extends BaseAdapter {
+
+
+    public ImageView imageView;
+
+    public String[] images;
+
+
+    public Bitmap[] imagesDecoded;
+
+
+
     private Context mContext;
 
     public ImageAdapter(Context c) {
@@ -32,7 +54,7 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
@@ -43,13 +65,66 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
+
+
+
+        //setting up array for images extracted from database
+        Firebase ref = new Firebase("https://flyershare.firebaseio.com/posts");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                long flyerCount = snapshot.getChildrenCount();
+                int flyerCountInt = (int) flyerCount;
+                images = new String[flyerCountInt];
+                int i = 0;
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    Flyer post = postSnapshot.getValue(Flyer.class);
+                    images[i] = post.getTitle();
+                    i++;
+
+                }
+
+                turnImageStringToImages();
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+
+
+
+
+        imageView.setImageBitmap(imagesDecoded[position]);
         return imageView;
     }
 
+
+
+
+
+
+
+    private void turnImageStringToImages(){
+        for(int i = 0; i < images.length; i++){
+            byte[] decodedString = Base64.decode(images[i], Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            imagesDecoded[i] = decodedByte;
+        }
+    }
+
+
+
+
+
     // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.sample_2, R.drawable.sample_3,
+    private Bitmap[] mThumbIds = {
+
+
+
+
+
+            /*R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7,
             R.drawable.sample_0, R.drawable.sample_1,
@@ -59,6 +134,7 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.sample_0, R.drawable.sample_1,
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
+            R.drawable.sample_6, R.drawable.sample_7*/
     };
 }
+
