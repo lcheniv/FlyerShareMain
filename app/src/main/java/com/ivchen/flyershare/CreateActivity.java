@@ -23,7 +23,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import com.ivchen.flyershare.StringData;
+
 
 
 public class CreateActivity extends AppCompatActivity   {
@@ -32,9 +32,7 @@ public class CreateActivity extends AppCompatActivity   {
     private static int SELECT_FILE = 1; //needs to be initialized for startActivityForResult method to work
     ImageView image;
     EditText title, date, school;
-    TextView text, text2;
     Uri selectedImage;
-    String x = "";
 
 
     @Override
@@ -44,46 +42,11 @@ public class CreateActivity extends AppCompatActivity   {
         Firebase.setAndroidContext(this);
 
 
-
-
-
-
         image = (ImageView) findViewById(R.id.imageView2);
         title = (EditText) findViewById(R.id.editText);
         date = (EditText) findViewById(R.id.editText2);
         school = (EditText) findViewById(R.id.editText3);
-        text = (TextView) findViewById(R.id.textView2);
-       // text2 = (TextView) findViewById(R.id.textView3);
 
-
-
-            Firebase ref = new Firebase("https://flyershare.firebaseio.com/posts");
-        final ValueEventListener valueEventListener = ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    Flyer post = postSnapshot.getValue(Flyer.class);
-                    x = post.getImage();
-
-                    //x = "hey";
-                }
-
-                //x = "hey";
-                //text.setText(x);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
-
-
-       // StringData.x = "hey";
-     // text.setText(StringData.x);
-       byte[] decodedString = Base64.decode(x, Base64.DEFAULT);
-       Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-       image.setImageBitmap(decodedByte);
 
     }
 
@@ -140,7 +103,7 @@ public class CreateActivity extends AppCompatActivity   {
 
                Toast.makeText(CreateActivity.this, "Uploading . . .", Toast.LENGTH_SHORT).show();
            }else{
-               Toast.makeText(CreateActivity.this, "Make sure all fiels are completed!", Toast.LENGTH_SHORT).show();
+               Toast.makeText(CreateActivity.this, "Make sure all fields are completed!", Toast.LENGTH_SHORT).show();
            }
        }catch(Exception e){
            Toast.makeText(CreateActivity.this, "Make sure image is selected!", Toast.LENGTH_SHORT).show();

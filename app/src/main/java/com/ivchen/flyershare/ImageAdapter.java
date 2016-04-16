@@ -32,6 +32,10 @@ public class ImageAdapter extends BaseAdapter {
 
     public Bitmap[] imagesDecoded;
 
+    public String holdsImage = "";
+
+    public int i = 0;
+
 
 
     private Context mContext;
@@ -75,16 +79,21 @@ public class ImageAdapter extends BaseAdapter {
             public void onDataChange(DataSnapshot snapshot) {
                 long flyerCount = snapshot.getChildrenCount();
                 int flyerCountInt = (int) flyerCount;
-                images = new String[flyerCountInt];
-                int i = 0;
+                imagesDecoded = new Bitmap[flyerCountInt];
+                //images = new String[flyerCountInt];
+                //int j = 0;
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Flyer post = postSnapshot.getValue(Flyer.class);
-                    images[i] = post.getTitle();
+                    holdsImage = post.getTitle();
+                    //turnImageStringToImages(holdsImage);
+                    byte[] decodedString = Base64.decode(holdsImage, Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    imagesDecoded[i] = decodedByte;
                     i++;
+                    //j++;
+
 
                 }
-
-                turnImageStringToImages();
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {
@@ -105,12 +114,13 @@ public class ImageAdapter extends BaseAdapter {
 
 
 
-    private void turnImageStringToImages(){
-        for(int i = 0; i < images.length; i++){
-            byte[] decodedString = Base64.decode(images[i], Base64.DEFAULT);
+    private void turnImageStringToImages(String s){
+
+            byte[] decodedString = Base64.decode(s, Base64.DEFAULT);
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             imagesDecoded[i] = decodedByte;
-        }
+            i++;
+
     }
 
 
