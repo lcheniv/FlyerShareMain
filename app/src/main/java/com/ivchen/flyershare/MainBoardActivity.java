@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,9 +24,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.view.MotionEvent;
@@ -63,6 +66,7 @@ public class MainBoardActivity extends AppCompatActivity implements GestureDetec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String [] mThumbIds2 = new String [mThumbIds.length];
         setContentView(R.layout.activity_main_board);
         Firebase.setAndroidContext(this);
         this.gestureDetector = new GestureDetectorCompat(this,this);
@@ -70,6 +74,9 @@ public class MainBoardActivity extends AppCompatActivity implements GestureDetec
         detector = new GestureDetector(this, new SwipeGestureDetector());
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.listitem,mThumbIds2);
+        gridview.setAdapter(adapter);
+        registerForContextMenu(gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,6 +91,33 @@ public class MainBoardActivity extends AppCompatActivity implements GestureDetec
         });
             mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        String [] mThumbIds2 = new String [mThumbIds.length];
+        if(v.getId() == R.id.gridview){
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+            menu.setHeaderTitle(mThumbIds2[info.position]);
+            String[] menuItems = getResources().getStringArray(R.array.menu);
+            for(int i = 0; i < menuItems.length; i++){
+                menu.add(Menu.NONE, i, i, menuItems[i]);
+            }
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        String [] mThumbIds2 = new String [mThumbIds.length];
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int menuItemIndex = item.getItemId();
+        String [] menuItems = getResources().getStringArray(R.array.menu);
+        String menuItemName = menuItems[menuItemIndex];
+        String listItemName = mThumbIds2[info.position];
+
+        TextView text = (TextView) findViewById(R.id.footer);
+        text.setText(String.format("Selected %s for item %s", menuItemName, listItemName));
+        return true;
+    }
+
     class ImageAdapter extends BaseAdapter {
         private Context mContext;
         private LayoutInflater layoutInflater;

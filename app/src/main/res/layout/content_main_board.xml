@@ -65,6 +65,14 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp" />
 
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/footer"
+        android:padding="4dp"
+        android:background="#FF666666"/>
+
 
     <ImageView
         android:id="@+id/expanded_image"
