@@ -15,7 +15,8 @@
         android:layout_alignTop="@+id/uploadFlyerButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible" />
 
     <Button
         android:layout_width="wrap_content"
@@ -26,7 +27,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="56dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:onClick="onClickbuttonUpload" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
-        android:onClick="onClickHome"/>
+        android:onClick="onClickHome"
+        android:nestedScrollingEnabled="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Description: "
+        android:text="Date of event(DD/MM): "
         android:id="@+id/descriptionText"
         android:textColor="#ffffff"
         android:layout_below="@+id/titleText"
@@ -80,6 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText2"
+        android:inputType="date"
         android:layout_below="@+id/descriptionText"
         android:layout_alignLeft="@+id/descriptionText"
         android:layout_alignStart="@+id/descriptionText"
@@ -99,16 +103,18 @@
         android:paddingRight="30dp"
         android:layout_above="@+id/imageButton"
         android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignStart="@+id/editText2"
+        android:onClick="onClickbuttonCamera" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="From Photo Library"
-        android:id="@+id/button"
+        android:id="@+id/buttonPhotoLibrary"
         android:layout_alignTop="@+id/captureImageButton"
         android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignEnd="@+id/editText2"
+        android:onClick="onClickbuttonPhotoLibrary" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -140,8 +146,19 @@
         android:id="@+id/imageView"
         android:src="@drawable/upload_flyer"
         android:background="@null"
-        android:layout_above="@+id/captureImageButton"
-        android:layout_toRightOf="@+id/descriptionText"
-        android:layout_toEndOf="@+id/descriptionText" />
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_above="@+id/buttonPhotoLibrary"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_below="@id/editText3"
+        android:paddingTop="10dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="20dp"/>
 
 </RelativeLayout>
